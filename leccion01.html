@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- TEMA OSCURO
+<html lang="es" data-bs-theme="dark">
+	-->
+<html lang="es">
+<head>
+	<meta http-equiv="content-type"
+		  content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lección 01</title>
+
+	<!-- Importación jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importación de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<style>
+
+		.textoVerde {
+			color: green;
+			font-weight: bold;
+		}
+
+	</style>
+
+	</head>
+<body>
+
+	<div class="container">
+	<h1 >Lección 01</h1>
+	<hr>
+	<ul>
+		<li><span class="badge text-bg-primary">Hola 1</span></li>
+		<li><span class="badge text-bg-success">Hola 2</span></li>
+		<li>Hola 3</li>
+	</ul>
+
+	</div>
+
+
+
+
+<script>
+
+	//$('ul').css('color','green');
+	// Espera a que cargue la documento para realizar la acción -> ${document}.ready(function() La forma abreviada $function()
+
+	//$(document).ready(function(){
+	$(function(){					$('ul').addClass('textoVerde');
+	});
+
+
+</script>
+
+</body>
+</html>
