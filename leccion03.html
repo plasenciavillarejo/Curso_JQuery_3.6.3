@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 03 - Eventos</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importación de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+	<style>
+		.img100{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+
+
+<div class="container">
+
+	<h1>Lección 03: Eventos</h1>
+	<hr>
+
+
+	<button id="but1" type="button" class="btn btn-primary">Evento Click</button>
+
+	<div class="row mt-5">
+		<img src="img/profesor.jpg" class="img100">
+
+		<a id="url" class="mt-5" href="https://www.google.com">Ir a Google</a>
+
+	</div>
+
+</div>
+
+
+<script>
+
+	$('#but1').on("click",function(){
+		console.log("Click de el botón utilizando un evento");
+	});
+
+	// Funcio activa cuando se pasa por lo alto de la imágen
+	$(".img100").on("mouseenter", function(){
+		console.log("Función mouseenter es activada al pasar el mouse por lo alto de la imágen,");
+		$(this).attr("src","img/nophoto.jpg");
+	});
+
+	// Función salida cuando se pasa pr lo alto de la imágen
+	/*$(".img100").on("mouseover", function(){
+		console.log("Función mouseover es activada al pasar el mouse por lo alto de la imágen,");
+	});
+	*/
+	// Función salida cuando se pasa pr lo alto de la imágen
+	$(".img100").on("mouseleave", function(){
+		console.log("Función mouseleave es activada al pasar el mouse por lo alto de la imágen,");
+		$(this).attr("src","img/profesor.jpg");
+	});
+
+	$("#url").on('click', function(e) {
+		// Al indicar el preventDefault() le indicamos que no deuvelva nada. Es similar a un return false;
+		e.preventDefault();
+	});
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
