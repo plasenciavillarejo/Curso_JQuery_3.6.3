@@ -6,7 +6,7 @@
 
 <!-- Importación jQuery -->
 	<script src="js/jquery-3.6.3.min.js"></script>
-	
+
 	<!-- Importacion del Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -27,12 +27,12 @@
 
 
 <div class="container">
-	
+
 	<h1>Selectores y Encadenamiento</h1>
 	<hr>
 
 	<div class="row">
-		
+
 		<div class="col-sm-4">
 			<img src="img/nophoto.jpg" class="img-circle">
 			<h4>José Plasencia</h4>
@@ -55,32 +55,32 @@
 		</div>
 
 	</div>
-	
+
 
 </div>
 
-<script>	
+<script>
 	$("img")
 		.attr("src","img/profesor.jpg") // Añade la imágen
 		.removeClass('img-circle') // remueve la clase
 		.addClass('img-circle img-thumbnail'); // añade una nueva clase
-	
+
 	// Se utiliza para seleccionar los hijos directos de un elemento padre específico.
 	console.log("Salida elemento children()",$(".col-sm-5").children());
-	
+
 	console.log("Salida children() seleccioando con un arreglo de objetos seleccionando el primero",$(".col-sm-5").children("p").eq(0))
-	
+
 	// MOdificacion sobre la clase
 	$(".col-sm-5").find("p").html("Saludos, esto es un texto que se <u> ha cambiado al iniciar con la página utilizando el objeto find() con Jquery.</ul>     Ademas se está utiliando etiqueta de html dentro ");
-	
+
 	// Referencia a la lista ordenada
 	// Con el end() finalizao la instrucción y puede continuar con la busqueda de el segundo selector. En caso de que no se haga de está forma nunca pintará nada.
 	$("ul li")
 		.eq(0).css("color", "green").end()
 	  	.eq(1).css("color", "red").end();
-	
+
 </script>
-		
+
 
 
 

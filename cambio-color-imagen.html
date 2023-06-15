@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Presentacion de Vehículo</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importación de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<style>
+		.form-group{
+			position: relative;
+			top: 22px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+
+<div class="container text-center">
+
+	<h1>Objetos Prácticos: <small>Ejemplo de vehículo</small></h1>
+	<hr>
+
+
+	<!--
+	<div class="divPreloader">
+		<img src="img/loading.gif" class="imgLoader img-responsive">
+	</div>
+	-->
+
+	<div class="divVistaPrevia">
+		<img id="imgCarro" style="width: 50%" src="img/tesla/modelS-blanco.jpg" class="img-responsive">
+	</div>
+
+	<div class="form-group d-flex justify-content-center">
+	    <div class="col-sm-offset-4 col-sm-5">
+	      	<select id="cmbColor" class="form-select">
+	      		<!--<option value="blanco">Blanco</option>
+	      		<option value="negro">Negro</option>
+	      		<option value="rojo">Rojo</option>-->
+	      	</select>
+	    </div>
+	</div>
+
+</div>
+
+
+
+<script>
+
+(function(){
+
+	var teslaView = {
+		colores: ['Blanco','Rojo','Cafe','Verde','Negro'],
+
+		// función principal
+		init: function() {
+			for(var i =0; i<teslaView.colores.length; i++) {
+				var color = teslaView.colores[i];
+				$('<option>',{
+					value: color,
+					text: color,
+				}).appendTo('#cmbColor');
+			}
+		}
+	}
+
+	teslaView.init();
+	// Cuando la lista cambie realizaremos el siguiente cambio con jquery
+	/*$('#cmbColor').on('change',function(){
+		// Con el (this) seleccionamos el cmColor
+		var color = $(this).val();
+		var url = "img/tesla/modelS-"+color+".jpg";
+
+		$('#imgCarro').attr('src',url);
+	});
+	*/
+
+})();
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

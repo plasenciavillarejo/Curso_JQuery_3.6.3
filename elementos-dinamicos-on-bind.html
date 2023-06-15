@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 04 - Acordeones</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importación de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+	<style>
+
+		h3{
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+
+
+<div class="container">
+
+	<h1>Lección 05: On y Bind</h1>
+	<hr>
+
+	<div align="center">
+
+		<h3> Click ME !!!!</h3>
+
+
+	</div>
+
+
+</div>
+
+
+</body>
+
+
+	<script>
+
+	// Vamos a declarar una función anónima
+		(function(){
+			var contador = 0;
+
+			$("h3").on("click",function(){
+
+				contador ++;
+
+				var h3Dinamico = "<h3>Dinámico" + contador+ " </h3>";
+
+				// Cuando se pulse el boto queremos meter el h3Dinamigo en el body
+				$("body").append(h3Dinamico);
+				// Se carga antes de el body
+				$("body").prepend(h3Dinamico);
+
+				// Se carga debajo del clickme
+				$('.container').append(h3Dinamico);
+
+			});
+
+		})();
+
+
+	</script>
+
+</html>

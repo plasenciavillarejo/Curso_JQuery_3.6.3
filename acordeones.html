@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 04 - Acordeones</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importación de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+	<style>
+
+		dl {
+			width: 50%;
+		}
+
+		dd{
+			margin: 0;
+			padding: 10px;
+		}
+		dt{
+			cursor: pointer;
+			font-size: 18px;
+			background-color:burlywood;
+			border-bottom: 1px solid #c5c5c5;
+			border-top: 1px solid white;
+		}
+
+	</style>
+</head>
+<body>
+
+
+<div class="container">
+
+	<h1>Lección 04: Acordeones</h1>
+	<hr>
+
+	<div align="center">
+
+		<dl>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+			<dt>Título del acordeon</dt>
+			<dd>Este es el detalle de el acordeon</dd>
+
+		</dl>
+
+
+	</div>
+
+
+</div>
+
+
+</body>
+
+
+	<script>
+
+	// Vamos a declarar una función anónima
+
+		(function(){
+			var dds = $('dd');
+
+			dds.hide();
+
+			// vamos a seleccionar el primero
+			dds.eq(0).show();
+
+
+
+			// cuando el mouse pase sobre la lista de detalles disparamos una evento
+			$('dt').on('mouseenter', function(){
+				// Se encarga de cerrar en milisegundos
+				dds.slideUp(2);
+				// Hace referencia al titulo que esté seleccionado con el mouse encima
+				$(this)
+				// Busca el elemento hermano en este caso al seleccionar el <dt> el siguiente es <dd>
+					.next()
+					.slideDown(200);
+			});
+
+
+		})();
+
+
+	</script>
+
+</html>
