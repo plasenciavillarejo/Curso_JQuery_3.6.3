@@ -19,6 +19,13 @@
 			top: 22px;
 		}
 
+		.divPreloader{
+			position: absolute;
+			opacity: 0.4;
+			height: 135px;
+			margin-left: -395px;
+			margin-top: 76px;
+		}
 	</style>
 
 </head>
@@ -31,11 +38,11 @@
 	<hr>
 
 
-	<!--
-	<div class="divPreloader">
+
+	<div class="divPreloader d-flex justify-content-center">
 		<img src="img/loading.gif" class="imgLoader img-responsive">
 	</div>
-	-->
+
 
 	<div class="divVistaPrevia">
 		<img id="imgCarro" style="width: 50%" src="img/tesla/modelS-blanco.jpg" class="img-responsive">
@@ -57,12 +64,19 @@
 
 <script>
 
+
+$(document).ready(function() {
+  // Inicilamente oculto el div
+  $('.divPreloader')
+	  .addClass('d-none')
+});
+
 (function(){
 
 	var teslaView = {
-		colores: ['Blanco','Rojo','Cafe','Verde','Negro'],
+		colores: ['Blanco','Rojo','Cafe','Verde','Negro','Gris'],
 
-		// función principal
+		// función principal para crear nuestro colores y crear nuestro combo
 		init: function() {
 			for(var i =0; i<teslaView.colores.length; i++) {
 				var color = teslaView.colores[i];
@@ -71,24 +85,41 @@
 					text: color,
 				}).appendTo('#cmbColor');
 			}
+
+		// Como ya existe una función init vamos a utilizar el bind() para enlazar
+		//	el nuevo cambio de colores
+		$('#cmbColor').bind('change',function(){
+			$('.divPreloader').removeClass('d-none');
+			// Agrego un retraso de 2 segundos.
+			$(this).delay(1000).queue(function() {
+				var color = $(this).val();
+				var url = "img/tesla/modelS-"+color+".jpg";
+				$('#imgCarro').attr('src',url);
+				$('.divPreloader').addClass('d-none');
+
+				// Continua la ejecución
+				$(this).dequeue();
+			});
+		});
+
 		}
 	}
 
 	teslaView.init();
-	// Cuando la lista cambie realizaremos el siguiente cambio con jquery
-	/*$('#cmbColor').on('change',function(){
-		// Con el (this) seleccionamos el cmColor
-		var color = $(this).val();
-		var url = "img/tesla/modelS-"+color+".jpg";
-
-		$('#imgCarro').attr('src',url);
-	});
-	*/
 
 })();
 
+	// Escucha cada vez que se cambia
+	/*
+	$('#cmbColor').change(function(){
+		console.log("Ejecutando la función cmbColor");
+		// Recuperamos la imágen con la que se ha cambiado el select
+		console.log("La imágen seleccionado es:", $('#imgCarro').attr('src'));
+		var imgSrc = $('#imgCarro').attr('src');
+		$('.divPreloader').addClass('d-none');
 
-
+	});
+	*/
 </script>
 
 

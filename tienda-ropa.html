@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Tienda de Ropa</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+	<style>
+
+		.imgThumb{
+		display: block;
+		cursor: pointer;
+		}
+
+
+		.imgRating{
+		width: 30px;
+		height: 30px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+
+
+<div class="container">
+
+	<h1>Tienda de Ropa: <small>Fernando's</small></h1>
+	<hr>
+
+	<div class="row">
+
+		<div class="col-sm-1">
+		    <section class="panel">
+		        <div class="panel-body">
+
+					<img data-color="Blanca" src="img/camiseta/thumbs/blanca.jpg" class="imgThumb img-thumbnail mb-2">
+					<img data-color="Gris" src="img/camiseta/thumbs/gris.jpg" class="imgThumb img-thumbnail mb-2">
+					<img data-color="Negra" src="img/camiseta/thumbs/negra.jpg" class="imgThumb img-thumbnail mb-2">
+					<img data-color="Rojo" src="img/camiseta/thumbs/rojo.jpg" class="imgThumb img-thumbnail mb-2">
+					<img data-color="Rosa" src="img/camiseta/thumbs/rosa.jpg" class="imgThumb img-thumbnail mb-2">
+					<img data-color="Verde" src="img/camiseta/thumbs/verde.jpg" class="imgThumb img-thumbnail mt-2">
+
+		        </div>
+		    </section>
+		</div>
+
+		<div class="col-sm-6">
+		    <section class="panel">
+		        <div class="panel-body">
+
+					<img id="imagen-camiseta-grande" src="img/camiseta/large/blanca.jpg">
+
+		        </div>
+		    </section>
+		</div>
+
+		<div class="col-sm-5">
+		    <section class="panel">
+		        <div class="panel-body">
+					<h2>Camiseta Especial <small id="lblColor"Blanca</small></h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum provident doloremque ipsam beatae neque quo saepe voluptatibus, sunt hic delectus nam perspiciatis ut atque, minus minima, rem reiciendis dolor harum!.
+						<br>
+						<br>
+					</p>
+					<p>
+						<h4>Rating</h4>
+						<img id="r1" src="img/star1.png" class="imgRating">
+						<img id="r2" src="img/star1.png" class="imgRating">
+						<img id="r3" src="img/star1.png" class="imgRating">
+						<img id="r4" src="img/star1.png" class="imgRating">
+						<img id="r5" src="img/star2.png" class="imgRating">
+						<br>
+						<br>
+					</p>
+					<p>
+						<h3>Precio <small>$10</small></h3>
+					</p>
+
+		        </div>
+		    </section>
+		</div>
+
+	</div>
+
+
+</div>
+
+
+<script>
+	$('.imgThumb').on('mouseover',function(){
+		var color = $(this).data('color');
+		console.log("Color de la camiseta de el maniquí inicialmente es:", color);
+		var url = "img/camiseta/large/"+color+".jpg"
+
+		console.log("Color camiseta seleccionado:", color);
+		var imagenCamiseta = $('#imagen-camiseta-grande').attr('src');
+		console.log("Inicialmente la camiseta grande es:", imagenCamiseta);
+
+		// Procedemos a realizar el cambio de el maniquí
+		$('#imagen-camiseta-grande').attr('src',url);
+		console.log("Color de la camiseta de el maniquí es:", color);
+		$('#lblColor').text(color);
+		console.log("Camiseta Especial contiene ahora el color:",color);
+
+		// Se procede a cambiar las estrellas
+
+		var imgArray = $('.imgRating').toArray();
+		console.log(imgArray);
+		if(color === 'Blanca'){
+			for(var i=0; i<imgArray.length;i++){
+				if(i=4) {
+					imgArray[i].attributes.src;
+					$('#r4').attr('src',"img/star2.png");
+				}
+			}
+		}
+	});
+
+</script>
+
+
+</body>
+</html>
